@@ -1,26 +1,114 @@
 TABLE USER
 --------------
-id                      mediumint UN
-fisrtname               varchar(60)
-lastname                varchar(60)
-fullname                varchar(121)
-screenname              varchar(63)
-nickname                varchar(40)
-email                   varchar(255)
-password                varchar(255)
-role                    enum('user', 'contributor', 'moderator', 'admin')
-birth_date              date
-birth_place             varchar(60)
-gender                  enum('M','F','N')
-phone_number            varchar(20)
-profile_description     text
-profile_picture         varchar(40)
-profile_cover           varchar(40)
-register_date           datetime
-last_connection_date    datetime
-last_action_date        timestamp
-country                 char(2)
-isDeleted               tinyint(1)
+id                          mediumint UN
+fisrtname                   varchar(60)
+lastname                    varchar(60)
+fullname                    varchar(121)
+screenname                  varchar(63)
+nickname                    varchar(40)
+email                       varchar(255)
+password                    varchar(255)
+role                        enum('user', 'contributor', 'moderator', 'admin')
+birth_date                  date
+birth_place                 varchar(60)
+gender                      enum('M','F','N')
+phone_number                varchar(20)
+profile_description         text
+profile_picture             varchar(40)
+profile_cover               varchar(40)
+register_date               datetime
+last_connection_date        datetime
+last_action_date            timestamp
+country                     char(2)
+isDeleted                   tinyint(1)
+
+
+
+TABLE ARTICLE
+--------------
+id                          int(11) PK NN UQ AI
+title                       varchar(120)
+slug                        varchar(120)
+summary                     tinytext
+excerpt_html                tinytext
+excerpt_text                tinytext
+illustration                varchar(40)
+illustration_excerpt        varchar(40)
+content_html                text
+content_text                text
+create_at                   datetime                    Date et heure de createion
+review_at                   datetime                    Date et heure de relecture
+publish_at                  datetime                    Date et heure de publication
+edit_at                     datetime                    Date et heure de modification
+counter_view                smallint(5)                 Nombre de vue
+counter_read                smallint(5)                 Nombre de lecture
+counter_applause            smallint(5)                 Compteur de like (il n'y à pas de dislike)
+read_time                   smallint(4)                 Temps de lecture de l'article
+reading_time                smallint(4)                 Temps passé par l'utilisateur à lire l'article
+is_sharable                 tinyint(1)                  Booleen
+is_comment_allowed          tinyint(1)                  Booleen - Est ce que les commentaires sont autorisés sur l'article
+is_comment_active           tinyint(1)                  Booleen - Est ce que les commentaires sont activés sur l'article
+
+
+TABLE COMMENT
+--------------
+id 
+article_id
+author_id
+parent_id
+title 
+content
+create_at
+publish_at
+edit_at
+delete_at
+delete_reason
+counter_like
+
+
+TABLE CATEGORY
+--------------
+id 
+value 
+color
+illusttration
+
+
+TABLE CATEGORY_ARTICLE
+--------------
+id 
+category_id 
+article_id
+
+
+TABLE ARTICLE_KEYWORDS
+--------------
+id 
+article_id
+value
+
+
+TABLE ARTICLE_AUTHOR
+--------------
+id 
+user_id 
+article_id
+
+
+TABLE SOURCING
+--------------
+id
+article_id
+value
+url 
+
+
+
+
+
+
+
+
 
 
 
@@ -77,82 +165,3 @@ altitude
 
 
 
-
-
-TABLE ARTICLE
---------------
-id
-title
-slug
-summary
-excerpt_html
-excerpt_text
-illustration
-illustration_excerpt
-content_html
-content_text
-create_at                   Date et heure de createion
-review_at                   Date et heure de relecture
-publish_at                  Date et heure de publication
-edit_at                     Date et heure de modification
-counter_view                Nombre de vue
-counter_read                Nombre de lecture
-counter_applause            Compteur de like (il n'y à pas de dislike)
-read_time                   Temps de lecture de l'article
-reading_time                Temps passé par l'utilisateur à lire l'article
-is_sharable                 Booleen
-is_comment_allowed          Booleen - Est ce que les commentaires sont autorisés sur l'article
-is_comment_active           Booleen - Est ce que les commentaires sont activés sur l'article
-
-
-TABLE COMMENT
---------------
-id 
-article_id
-author_id
-parent_id
-title 
-content
-create_at
-publish_at
-edit_at
-delete_at
-delete_reason
-counter_like
-
-
-TABLE CATEGORY
---------------
-id 
-value 
-color
-illusttration
-
-
-TABLE CATEGORY_ARTICLE
---------------
-id 
-category_id 
-article_id
-
-
-TABLE ARTICLE_KEYWORDS
---------------
-id 
-article_id
-value
-
-
-TABLE ARTICLE_AUTHOR
---------------
-id 
-user_id 
-article_id
-
-
-TABLE SOURCING
---------------
-id
-article_id
-value
-url 
