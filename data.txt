@@ -20,7 +20,7 @@ register_date               datetime
 last_connection_date        datetime
 last_action_date            timestamp
 country                     char(2)
-isDeleted                   tinyint(1)
+is_deleted                  tinyint(1)
 
 
 
@@ -53,8 +53,8 @@ is_comment_active           tinyint(1)                  Booleen - Est ce que les
 TABLE COMMENT
 --------------
 id                          int(11) PK NN UQ UN AI
-article_id                  int(11) UN
-author_id                   int(11) UN 
+article_id                  int(11) NN UN
+author_id                   int(11) NN UN 
 parent_id                   int(11) UN
 title                       varchar(120)
 content                     text
@@ -77,28 +77,28 @@ illustration                varchar(40)
 TABLE CATEGORY_ARTICLE
 --------------
 id                          int(11) PK NN UQ UN AI
-category_id                 int(11) UN
-article_id                  int(11) UN
+category_id                 int(11) NN UN 
+article_id                  int(11) NN UN
 
 
 TABLE ARTICLE_KEYWORDS
 --------------
 id                          int(11) PK NN UQ UN AI
-article_id                  int(11) UN
+article_id                  int(11) NN UN
 value                       varchar(80)
 
 
 TABLE ARTICLE_AUTHOR
 --------------
 id                          int(11) PK NN UQ UN AI
-user_id                     int(11) UN
-article_id                  int(11) UN
+user_id                     int(11) NN UN
+article_id                  int(11) NN UN
 
 
 TABLE SOURCING
 --------------
 id                          int(11) PK NN UQ UN AI
-article_id                  int(11) UN
+article_id                  int(11) NN UN
 label                       varchar(80)
 url                         varchar(255)
 
