@@ -1,0 +1,158 @@
+TABLE USER
+--------------
+id                      mediumint UN
+fisrtname               varchar(60)
+lastname                varchar(60)
+fullname                varchar(121)
+screenname              varchar(63)
+nickname                varchar(40)
+email                   varchar(255)
+password                varchar(255)
+role                    enum('user', 'contributor', 'moderator', 'admin')
+birth_date              date
+birth_place             varchar(60)
+gender                  enum('M','F','N')
+phone_number            varchar(20)
+profile_description     text
+profile_picture         varchar(40)
+profile_cover           varchar(40)
+register_date           datetime
+last_connection_date    datetime
+last_action_date        timestamp
+country                 char(2)
+isDeleted               tinyint(1)
+
+
+
+
+
+
+
+
+
+
+
+
+TABLE PAGES
+--------------
+id
+user_id
+type 
+value
+
+
+
+TABLE ADDRESS
+--------------
+id 
+user_id 
+label 
+street_number               Numéro de porte dans la voix
+street_number_extension     Bis, Ter
+street_type                 Type de voix
+street_name                 Nom de la voix
+building                    Nom du batiment
+establishment               Nom de l'entreprise / l'enseigne
+isFlat                      Appartement Oui / Non
+floor                       Numéro de l'étage
+floor_number                Numéro de porte dans l'étage
+has_elevator                Y a t'il un ascenseur Oui/Non
+post_code                   Code postal
+post_code_prefix            Prefix de code postale
+post_code_suffix            Suffix de code postale
+city                        Nom de la ville
+cedex                       Code CEDEX 
+post_box_code               Boite postal
+locality                    Nom du quartier
+administrtive_area_level_1  state or grande région (hauts de france) or province
+administrtive_area_level_2 the county (petite région (NPDC))
+administrtive_area_level_3  département (Nord)
+administrtive_area_level_4  Métropole (Lille métropole)
+administrtive_area_level_5  arrondissement
+country                     Code ISO-ALPHA-2 du pays (FR, BE, NL, IT, ES, ...)
+latitude
+longitude
+altitude
+
+
+
+
+
+
+TABLE ARTICLE
+--------------
+id
+title
+slug
+summary
+excerpt_html
+excerpt_text
+illustration
+illustration_excerpt
+content_html
+content_text
+create_at                   Date et heure de createion
+review_at                   Date et heure de relecture
+publish_at                  Date et heure de publication
+edit_at                     Date et heure de modification
+counter_view                Nombre de vue
+counter_read                Nombre de lecture
+counter_applause            Compteur de like (il n'y à pas de dislike)
+read_time                   Temps de lecture de l'article
+reading_time                Temps passé par l'utilisateur à lire l'article
+is_sharable                 Booleen
+is_comment_allowed          Booleen - Est ce que les commentaires sont autorisés sur l'article
+is_comment_active           Booleen - Est ce que les commentaires sont activés sur l'article
+
+
+TABLE COMMENT
+--------------
+id 
+article_id
+author_id
+parent_id
+title 
+content
+create_at
+publish_at
+edit_at
+delete_at
+delete_reason
+counter_like
+
+
+TABLE CATEGORY
+--------------
+id 
+value 
+color
+illusttration
+
+
+TABLE CATEGORY_ARTICLE
+--------------
+id 
+category_id 
+article_id
+
+
+TABLE ARTICLE_KEYWORDS
+--------------
+id 
+article_id
+value
+
+
+TABLE ARTICLE_AUTHOR
+--------------
+id 
+user_id 
+article_id
+
+
+TABLE SOURCING
+--------------
+id
+article_id
+value
+url 

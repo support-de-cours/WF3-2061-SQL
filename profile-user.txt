@@ -1,0 +1,26 @@
+Mon Profil 
+-> Synthése du profil de l'utilisateur
+
+Mon Compte
+-> Edition email 
+-> Edition du mot de passe
+-> Edition des infos de contact
+-> Paramètrage de contact
+
+Mes Factures
+-> liste / Historique des factures 
+
+Notification
+-> liste des notifications
+-> Paramètrage des notifications
+
+Sécurité
+-> Logs de connexions / actions
+-> Paramètrage de sécurité 
+    -> 2FA - identification à 2 facteurs
+    -> Options de connexion (login-password / sans mot de passe-par emeil)
+    -> memo anti-phishing
+-> Liste des machines de confiance (Nom et type de machine / geoloc. / adresse ip)
+
+Mes favoris
+-> liste des favoris
