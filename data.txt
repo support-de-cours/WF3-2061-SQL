@@ -74,11 +74,23 @@ color                       char(6)
 illustration                varchar(40)
 
 
+
+
+
 TABLE CATEGORY_ARTICLE
 --------------
 id                          int(11) PK NN UQ UN AI
 category_id                 int(11) NN UN 
 article_id                  int(11) NN UN
+
+TABLE ARTICLE_AUTHOR
+--------------
+id                          int(11) PK NN UQ UN AI
+user_id                     int(11) NN UN
+article_id                  int(11) NN UN
+
+
+
 
 
 TABLE ARTICLE_KEYWORDS
@@ -87,12 +99,6 @@ id                          int(11) PK NN UQ UN AI
 article_id                  int(11) NN UN
 value                       varchar(80)
 
-
-TABLE ARTICLE_AUTHOR
---------------
-id                          int(11) PK NN UQ UN AI
-user_id                     int(11) NN UN
-article_id                  int(11) NN UN
 
 
 TABLE SOURCING
@@ -109,7 +115,9 @@ url                         varchar(255)
 
 
 
-
+Article                             Keywords
+ENTITY A    peux avoir plusieurs    ENTITY B        oui non
+ENTITY B    peux avoir recevoir     ENTITY A        oui non
 
 
 
