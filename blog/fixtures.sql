@@ -5,6 +5,7 @@ VALUES  ("John",        "DOE",          "John D.",      "john@doe.com",     "123
         ("Bob",         "DOE",          "Bob D.",       "bob@doe.com",      "123456",       "contributor",  "2015-12-31",   "Lille",        "M",        "FR"), 
         ("Bruce",       "DOE",          "Bruce D.",     "bruce@doe.com",    "123456",       "contributor",  "2015-12-31",   "Lille",        "M",        "FR");
 
+
 INSERT INTO `wf3_blog`.`article`
         (`title`,       `slug`,         `summary`,              `excerpt_html`,             `excerpt_text`,             `content_html`,             `content_text`)
 VALUES  ("Article 1",   "article-1",    "article-1 summary",    "Article 1 excerpt HTML",   "article 1 excerpt text",   "article 1 content html",   "article 1 content text"),
@@ -26,3 +27,50 @@ VALUES  (1,             3),
         (1,             2),
         (2,             3),
         (4,             2);
+
+
+
+-- Recup le titre et la date de création des articles ecrit par l'auteur id 3
+SELECT 
+    `wf3_blog`.`article`.`id`, 
+    `wf3_blog`.`article`.`title`,
+    `wf3_blog`.`article`.`created_at`
+FROM
+    `wf3_blog`.`article`
+    INNER JOIN 
+        `wf3_blog`.`article_author`
+    ON
+        `wf3_blog`.`article_author`.`article_id` = `wf3_blog`.`article`.`id` 
+WHERE 
+    `wf3_blog`.`article_author`.`user_id` = 3;
+
+--
+
+SELECT 
+    `t1`.`id`, 
+    `t1`.`title`,
+    `t1`.`created_at`
+FROM
+    `wf3_blog`.`article` AS `t1`
+    INNER JOIN  `wf3_blog`.`article_author` AS `t2`
+        ON `t2`.`article_id` = `t1`.`id` 
+WHERE 
+    `t2`.`user_id` = 3;
+
+
+
+-- Recup les nom et prénom des auteurs et titre de l'article, de l'article ID 1
+SELECT 
+    `t1`.`id` AS `id_article`, 
+    `t3`.`id` AS `id_author`, 
+    `t1`.`title`, 
+    `t3`.`firstname`, 
+    `t3`.`lastname`
+FROM 
+    `wf3_blog`.`article` AS `t1`
+    INNER JOIN `wf3_blog`.`article_author`  AS `t2` ON `t2`.`article_id` = `t1`.`id` 
+    INNER JOIN `wf3_blog`.`user`            AS `t3` ON `t3`.`id` = `t2`.`user_id`
+WHERE
+    `t1`.`id` = 3
+    -- `t2`.`article_id` = 1
+
