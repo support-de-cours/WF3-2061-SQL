@@ -1,6 +1,6 @@
 TABLE USER
 --------------
-id                          mediumint PK NN UQ UN AI
+id                          int(11) PK NN UQ UN AI
 fisrtname                   varchar(60)
 lastname                    varchar(60)
 fullname                    varchar(121)
@@ -54,7 +54,7 @@ TABLE COMMENT
 --------------
 id                          int(11) PK NN UQ UN AI
 article_id                  int(11) UN
-author_id                   mediumint 
+author_id                   int(11) UN 
 parent_id                   int(11) UN
 title                       varchar(120)
 content                     text
@@ -69,38 +69,38 @@ counter_like                smallint(5)
 TABLE CATEGORY
 --------------
 id                          int(11) PK NN UQ UN AI
-value 
-color
-illusttration
+value                       varchar(20)
+color                       char(6)
+illustration                varchar(40)
 
 
 TABLE CATEGORY_ARTICLE
 --------------
 id                          int(11) PK NN UQ UN AI
-category_id 
-article_id
+category_id                 int(11) UN
+article_id                  int(11) UN
 
 
 TABLE ARTICLE_KEYWORDS
 --------------
 id                          int(11) PK NN UQ UN AI
-article_id
-value
+article_id                  int(11) UN
+value                       varchar(80)
 
 
 TABLE ARTICLE_AUTHOR
 --------------
 id                          int(11) PK NN UQ UN AI
-user_id 
-article_id
+user_id                     int(11) UN
+article_id                  int(11) UN
 
 
 TABLE SOURCING
 --------------
 id                          int(11) PK NN UQ UN AI
-article_id
-value
-url 
+article_id                  int(11) UN
+label                       varchar(80)
+url                         varchar(255)
 
 
 
