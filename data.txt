@@ -1,6 +1,6 @@
 TABLE USER
 --------------
-id                          mediumint UN
+id                          mediumint PK NN UQ UN AI
 fisrtname                   varchar(60)
 lastname                    varchar(60)
 fullname                    varchar(121)
@@ -26,7 +26,7 @@ isDeleted                   tinyint(1)
 
 TABLE ARTICLE
 --------------
-id                          int(11) PK NN UQ AI
+id                          int(11) PK NN UQ UN AI
 title                       varchar(120)
 slug                        varchar(120)
 summary                     tinytext
@@ -52,23 +52,23 @@ is_comment_active           tinyint(1)                  Booleen - Est ce que les
 
 TABLE COMMENT
 --------------
-id 
-article_id
-author_id
-parent_id
-title 
-content
-create_at
-publish_at
-edit_at
-delete_at
-delete_reason
-counter_like
+id                          int(11) PK NN UQ UN AI
+article_id                  int(11) UN
+author_id                   mediumint 
+parent_id                   int(11) UN
+title                       varchar(120)
+content                     text
+create_at                   datetime
+publish_at                  datetime
+edit_at                     datetime
+delete_at                   datetime
+delete_reason               enum('haine', 'harcelement')
+counter_like                smallint(5)
 
 
 TABLE CATEGORY
 --------------
-id 
+id                          int(11) PK NN UQ UN AI
 value 
 color
 illusttration
@@ -76,28 +76,28 @@ illusttration
 
 TABLE CATEGORY_ARTICLE
 --------------
-id 
+id                          int(11) PK NN UQ UN AI
 category_id 
 article_id
 
 
 TABLE ARTICLE_KEYWORDS
 --------------
-id 
+id                          int(11) PK NN UQ UN AI
 article_id
 value
 
 
 TABLE ARTICLE_AUTHOR
 --------------
-id 
+id                          int(11) PK NN UQ UN AI
 user_id 
 article_id
 
 
 TABLE SOURCING
 --------------
-id
+id                          int(11) PK NN UQ UN AI
 article_id
 value
 url 
